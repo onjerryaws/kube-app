@@ -22,6 +22,7 @@ spec:
               containerPort: 8080
       initContainers:
         - name: init-mydb
+          image: busybox
           command: ['sh', '-c', 'until nslookup vprod; do echo waiting for mydb; sleep 2; done']
         - name: init-memcache
           image: busybox
